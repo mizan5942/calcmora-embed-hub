@@ -1,17 +1,35 @@
+```html
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Free Calculator Widgets and Embed Guide | CalcMora</title>
+  <title>Calculator Widgets & Embed Guides | CalcMora</title>
 
-<meta
-name="description"
-content="Explore free calculator widgets, embed guidance, formula resources, and practical tools from CalcMora for students, bloggers, teachers, and website owners."
+  <meta
+    name="description"
+    content="Explore CalcMora calculator resources, formula guides, and embedding information for students, teachers, creators, and website owners."
+  >
 
->
+  <link rel="canonical" href="https://mizan5942.github.io/calcmora-embed-hub/">
+  <link rel="icon" type="image/png" href="icon-only.png">
+
+  <meta property="og:title" content="Calculator Widgets & Embed Guides | CalcMora">
+  <meta
+    property="og:description"
+    content="Helpful calculator resources, formula guides, and practical tools from CalcMora."
+  >
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mizan5942.github.io/calcmora-embed-hub/">
+  <meta property="og:site_name" content="CalcMora">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Calculator Widgets & Embed Guides | CalcMora">
+  <meta
+    name="twitter:description"
+    content="Helpful calculator resources, formula guides, and practical tools from CalcMora."
+  >
 
   <!-- Paste your Google Search Console verification tag here later -->
 
@@ -19,65 +37,103 @@ content="Explore free calculator widgets, embed guidance, formula resources, and
     :root {
       --bg: #07111f;
       --surface: #0f172a;
-      --surface-2: #111827;
+      --surface-soft: #111827;
       --border: #1f2937;
       --text: #f1f5f9;
       --muted: #94a3b8;
       --teal: #14b8a6;
+      --teal-dark: #0f766e;
       --gold: #f6d365;
-      --success: #22c55e;
+      --white: #ffffff;
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      background: var(--bg);
+      background:
+        radial-gradient(circle at top center, rgba(20, 184, 166, 0.11), transparent 32%),
+        var(--bg);
       color: var(--text);
       font-family: Arial, Helvetica, sans-serif;
       line-height: 1.7;
     }
 
+    a {
+      color: inherit;
+    }
+
     .container {
-      width: min(1100px, 92%);
+      width: min(1120px, 92%);
       margin: 0 auto;
     }
 
     header {
-      border-bottom: 1px solid var(--border);
-      background: rgba(7, 17, 31, 0.95);
       position: sticky;
       top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--border);
+      background: rgba(7, 17, 31, 0.92);
+      backdrop-filter: blur(14px);
     }
 
     .nav {
-      min-height: 72px;
+      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 18px;
     }
 
-    .logo {
-      color: white;
-      font-size: 22px;
-      font-weight: 800;
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--white);
       text-decoration: none;
     }
 
-    .logo span {
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      display: block;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    .brand-text {
+      font-size: 23px;
+      font-weight: 800;
+      letter-spacing: -0.7px;
+      line-height: 1;
+    }
+
+    .brand-text .calc {
       color: var(--teal);
     }
 
+    .brand-text .mora {
+      color: var(--white);
+    }
+
     .button {
-      display: inline-block;
-      text-decoration: none;
-      border-radius: 10px;
-      padding: 13px 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 20px;
+      border: 1px solid transparent;
+      border-radius: 11px;
+      font-size: 15px;
       font-weight: 700;
-      transition: transform 0.2s ease;
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
     }
 
     .button:hover {
@@ -85,49 +141,63 @@ content="Explore free calculator widgets, embed guidance, formula resources, and
     }
 
     .button-primary {
+      color: #042f2e;
       background: var(--teal);
-      color: #052e2b;
+    }
+
+    .button-primary:hover {
+      background: #2dd4bf;
     }
 
     .button-secondary {
-      border: 1px solid var(--border);
       color: var(--text);
-      background: var(--surface);
+      background: rgba(15, 23, 42, 0.9);
+      border-color: var(--border);
+    }
+
+    .button-secondary:hover {
+      border-color: rgba(20, 184, 166, 0.55);
+      background: #172033;
     }
 
     .hero {
-      padding: 90px 0 65px;
+      padding: 104px 0 76px;
       text-align: center;
     }
 
-    .badge {
-      display: inline-block;
-      color: var(--gold);
-      background: rgba(246, 211, 101, 0.1);
-      border: 1px solid rgba(246, 211, 101, 0.25);
-      padding: 7px 14px;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border: 1px solid rgba(246, 211, 101, 0.28);
       border-radius: 999px;
+      color: var(--gold);
+      background: rgba(246, 211, 101, 0.08);
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 800;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
     }
 
     h1 {
-      font-size: clamp(35px, 6vw, 64px);
-      line-height: 1.12;
-      margin: 20px auto;
-      max-width: 850px;
+      max-width: 900px;
+      margin: 22px auto 22px;
+      font-size: clamp(40px, 6vw, 68px);
+      line-height: 1.08;
+      letter-spacing: -2.2px;
     }
 
-    h2 {
-      margin-top: 0;
-      font-size: 30px;
-    }
-
-    .hero p {
-      font-size: 19px;
-      color: var(--muted);
+    .hero-description {
       max-width: 760px;
-      margin: 0 auto 28px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 20px);
     }
 
     .button-group {
@@ -135,20 +205,30 @@ content="Explore free calculator widgets, embed guidance, formula resources, and
       justify-content: center;
       flex-wrap: wrap;
       gap: 12px;
+      margin-top: 30px;
     }
 
     section {
-      padding: 60px 0;
+      padding: 70px 0;
     }
 
-    .section-title {
+    .section-heading {
+      max-width: 760px;
+      margin: 0 auto 38px;
       text-align: center;
-      max-width: 720px;
-      margin: 0 auto 35px;
     }
 
-    .section-title p {
+    .section-heading h2 {
+      margin-bottom: 12px;
+      font-size: clamp(28px, 4vw, 38px);
+      line-height: 1.2;
+      letter-spacing: -0.8px;
+    }
+
+    .section-heading p {
+      margin-bottom: 0;
       color: var(--muted);
+      font-size: 17px;
     }
 
     .grid {
@@ -158,235 +238,397 @@ content="Explore free calculator widgets, embed guidance, formula resources, and
     }
 
     .card {
-      background: var(--surface);
+      min-height: 100%;
+      padding: 28px;
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
+      border-radius: 18px;
+      background:
+        linear-gradient(145deg, rgba(20, 184, 166, 0.06), transparent 45%),
+        var(--surface);
+    }
+
+    .card-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      margin-bottom: 18px;
+      border-radius: 10px;
+      color: var(--teal);
+      background: rgba(20, 184, 166, 0.12);
+      font-size: 14px;
+      font-weight: 800;
     }
 
     .card h3 {
-      margin-top: 0;
+      margin-bottom: 10px;
       color: var(--gold);
+      font-size: 20px;
     }
 
     .card p {
-      color: var(--muted);
       margin-bottom: 0;
-    }
-
-    .highlight {
-      background: linear-gradient(135deg, #0f766e, #0f172a);
-      border: 1px solid rgba(20, 184, 166, 0.35);
-      border-radius: 20px;
-      padding: 42px;
-      text-align: center;
-    }
-
-    .highlight p {
-      max-width: 720px;
-      margin: 0 auto 25px;
-      color: #dbeafe;
-      font-size: 18px;
+      color: var(--muted);
     }
 
     .steps {
-      max-width: 800px;
+      max-width: 850px;
       margin: 0 auto;
     }
 
     .step {
-      background: var(--surface-2);
-      border-left: 4px solid var(--teal);
-      padding: 20px;
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      align-items: start;
+      gap: 16px;
+      padding: 22px;
       margin-bottom: 16px;
-      border-radius: 0 12px 12px 0;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--surface-soft);
     }
 
-    .step strong {
-      color: var(--gold);
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      color: #042f2e;
+      background: var(--teal);
+      font-weight: 800;
+    }
+
+    .step h3 {
+      margin-bottom: 5px;
+      color: var(--white);
+      font-size: 18px;
+    }
+
+    .step p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .highlight-section {
+      padding-top: 32px;
+    }
+
+    .highlight {
+      padding: clamp(32px, 6vw, 58px);
+      border: 1px solid rgba(20, 184, 166, 0.32);
+      border-radius: 24px;
+      text-align: center;
+      background:
+        radial-gradient(circle at top center, rgba(20, 184, 166, 0.22), transparent 58%),
+        linear-gradient(135deg, #0f766e, #0f172a 78%);
+    }
+
+    .highlight h2 {
+      margin-bottom: 14px;
+      font-size: clamp(29px, 4vw, 42px);
+      line-height: 1.2;
+      letter-spacing: -1px;
+    }
+
+    .highlight p {
+      max-width: 760px;
+      margin: 0 auto 28px;
+      color: #dbeafe;
+      font-size: 18px;
     }
 
     footer {
-      padding: 35px 0;
-      text-align: center;
+      margin-top: 30px;
+      padding: 34px 0;
       border-top: 1px solid var(--border);
       color: var(--muted);
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
     }
 
     footer a {
       color: var(--teal);
+      font-weight: 700;
       text-decoration: none;
     }
 
+    footer a:hover {
+      text-decoration: underline;
+    }
+
     @media (max-width: 760px) {
+      .nav {
+        min-height: auto;
+        padding: 14px 0;
+      }
+
+      .brand-icon {
+        width: 38px;
+        height: 38px;
+      }
+
+      .brand-text {
+        font-size: 20px;
+      }
+
+      .nav .button {
+        min-height: 42px;
+        padding: 10px 14px;
+        font-size: 14px;
+      }
+
+      .hero {
+        padding: 76px 0 45px;
+      }
+
+      h1 {
+        letter-spacing: -1.2px;
+      }
+
+      section {
+        padding: 52px 0;
+      }
+
       .grid {
         grid-template-columns: 1fr;
       }
 
+      .step {
+        grid-template-columns: 40px 1fr;
+        gap: 14px;
+        padding: 18px;
+      }
+
+      .step-number {
+        width: 38px;
+        height: 38px;
+      }
+    }
+
+    @media (max-width: 460px) {
       .nav {
-        min-height: auto;
-        padding: 16px 0;
+        gap: 12px;
+      }
+
+      .brand-text {
+        font-size: 18px;
+      }
+
+      .nav .button {
+        padding: 9px 12px;
+        font-size: 13px;
+      }
+
+      .button-group {
         flex-direction: column;
-      }
-
-      .hero {
-        padding: 65px 0 45px;
-      }
-
-      .highlight {
-        padding: 28px 20px;
+        align-items: stretch;
+        width: min(330px, 100%);
+        margin-left: auto;
+        margin-right: auto;
       }
     }
   </style>
-
 </head>
 
 <body>
   <header>
     <div class="container nav">
-      <a class="logo" href="https://calcmora.com/" target="_blank" rel="noopener">
-        Calc<span>Mora</span>
+      <a
+        class="brand"
+        href="https://calcmora.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Visit CalcMora"
+      >
+        <img class="brand-icon" src="icon-only.png" alt="CalcMora logo">
+        <span class="brand-text">
+          <span class="calc">Calc</span><span class="mora">Mora</span>
+        </span>
       </a>
 
-```
-  <a class="button button-secondary" href="https://calcmora.com/" target="_blank" rel="noopener">
-    Visit CalcMora
-  </a>
-</div>
-```
-
+      <a
+        class="button button-secondary"
+        href="https://calcmora.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Visit CalcMora
+      </a>
+    </div>
   </header>
 
   <main>
     <section class="hero">
       <div class="container">
-        <div class="badge">Free Calculator Resources</div>
+        <div class="eyebrow">Free Calculator Resources</div>
 
-```
-    <h1>Calculator Widgets, Formula Guides, and Helpful Tools</h1>
+        <h1>Calculator Widgets, Formula Guides, and Helpful Tools</h1>
 
-    <p>
-      CalcMora provides practical online calculators and clear formula resources
-      for students, teachers, bloggers, website owners, and everyday users.
-    </p>
-
-    <div class="button-group">
-      <a class="button button-primary" href="https://calcmora.com/" target="_blank" rel="noopener">
-        Explore Free Calculators
-      </a>
-
-      <a class="button button-secondary" href="#how-it-works">
-        Learn How It Works
-      </a>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="section-title">
-      <h2>Why Use CalcMora Resources?</h2>
-      <p>
-        Each tool is designed to make calculations easier, clearer, and more useful
-        for real-world questions.
-      </p>
-    </div>
-
-    <div class="grid">
-      <article class="card">
-        <h3>Useful Calculators</h3>
-        <p>
-          Explore tools for finance, health, mathematics, conversions, dates,
-          everyday life, and sports calculations.
+        <p class="hero-description">
+          CalcMora provides practical online calculators and clear formula resources
+          for students, teachers, creators, website owners, and everyday users.
         </p>
-      </article>
 
-      <article class="card">
-        <h3>Clear Explanations</h3>
-        <p>
-          Learn the meaning behind formulas with practical examples, definitions,
-          and step-by-step calculation guidance.
-        </p>
-      </article>
+        <div class="button-group">
+          <a
+            class="button button-primary"
+            href="https://calcmora.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Explore Free Calculators
+          </a>
 
-      <article class="card">
-        <h3>Easy Sharing</h3>
-        <p>
-          Find calculators that are useful for classroom lessons, blog articles,
-          personal planning, and daily problem-solving.
-        </p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section id="how-it-works">
-  <div class="container">
-    <div class="section-title">
-      <h2>How to Find the Right Calculator</h2>
-      <p>
-        Use these simple steps when you need a fast, accurate online calculation.
-      </p>
-    </div>
-
-    <div class="steps">
-      <div class="step">
-        <strong>Step 1:</strong> Choose the calculation topic you need, such as
-        finance, health, units, dates, or everyday planning.
+          <a class="button button-secondary" href="#how-it-works">
+            Learn How It Works
+          </a>
+        </div>
       </div>
+    </section>
 
-      <div class="step">
-        <strong>Step 2:</strong> Enter your values carefully into the calculator.
+    <section aria-labelledby="resources-heading">
+      <div class="container">
+        <div class="section-heading">
+          <h2 id="resources-heading">Why Use CalcMora Resources?</h2>
+          <p>
+            Each resource is created to help people understand calculations,
+            apply formulas, and find the right tool for real-world questions.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="card-number">01</div>
+            <h3>Useful Calculators</h3>
+            <p>
+              Explore tools for finance, health, mathematics, conversions,
+              date calculations, everyday planning, and more.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-number">02</div>
+            <h3>Clear Explanations</h3>
+            <p>
+              Learn the meaning behind common formulas through practical examples,
+              useful definitions, and easy-to-follow guidance.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-number">03</div>
+            <h3>Simple to Share</h3>
+            <p>
+              Find calculator resources that are useful for class activities,
+              articles, personal planning, research, and everyday decisions.
+            </p>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <div class="step">
-        <strong>Step 3:</strong> Review the result and read the explanation or
-        formula guidance when available.
+    <section id="how-it-works" aria-labelledby="how-heading">
+      <div class="container">
+        <div class="section-heading">
+          <h2 id="how-heading">How to Find the Right Calculator</h2>
+          <p>
+            Follow these four simple steps whenever you need a quick and clear
+            online calculation.
+          </p>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <div class="step-number">1</div>
+            <div>
+              <h3>Choose Your Topic</h3>
+              <p>
+                Select the calculation category you need, such as finance, health,
+                conversions, time, dates, mathematics, or everyday planning.
+              </p>
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="step-number">2</div>
+            <div>
+              <h3>Enter Your Values</h3>
+              <p>
+                Add your numbers carefully and check that you have selected the
+                correct unit, date, percentage, or measurement.
+              </p>
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="step-number">3</div>
+            <div>
+              <h3>Review the Result</h3>
+              <p>
+                Use the result alongside the explanation, formula details, examples,
+                or related resources available on the calculator page.
+              </p>
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="step-number">4</div>
+            <div>
+              <h3>Save or Share the Tool</h3>
+              <p>
+                Return to the calculator whenever you need it, or share the resource
+                with students, readers, colleagues, or friends.
+              </p>
+            </div>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <div class="step">
-        <strong>Step 4:</strong> Save, share, or revisit the tool whenever you
-        need to calculate again.
+    <section class="highlight-section">
+      <div class="container">
+        <div class="highlight">
+          <h2>Explore the Complete CalcMora Tool Library</h2>
+
+          <p>
+            Discover a growing collection of free calculators with practical
+            explanations, useful examples, FAQs, and related resources designed
+            to make everyday calculations easier.
+          </p>
+
+          <a
+            class="button button-primary"
+            href="https://calcmora.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open CalcMora Calculators
+          </a>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="highlight">
-      <h2>Use the Complete CalcMora Tool Library</h2>
-
-      <p>
-        Visit CalcMora to discover a growing collection of free, easy-to-use
-        calculator tools with explanations, examples, FAQs, and related resources.
-      </p>
-
-      <a class="button button-primary" href="https://calcmora.com/" target="_blank" rel="noopener">
-        Open CalcMora Calculators
-      </a>
-    </div>
-  </div>
-</section>
-```
-
+    </section>
   </main>
 
   <footer>
     <div class="container">
       <p>
         © 2026 CalcMora. Calculator resources designed for everyday use.
+        <a
+          href="https://calcmora.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Visit CalcMora.com
+        </a>
       </p>
-
-```
-  <p>
-    <a href="https://calcmora.com/" target="_blank" rel="noopener">
-      Visit CalcMora.com
-    </a>
-  </p>
-</div>
-```
-
+    </div>
   </footer>
 </body>
 </html>
+```
